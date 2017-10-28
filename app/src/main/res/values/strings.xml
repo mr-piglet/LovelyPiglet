@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lovely Piglet</string>
+    <string name="default_date">15-Oct</string>
+    <string name="default_description">Locked after </string>
 </resources>
