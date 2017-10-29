@@ -1,12 +1,15 @@
 package org.mrpiglet.lovelypiglet;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.View;
 
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
@@ -25,12 +28,26 @@ public class MainActivity extends AppCompatActivity {
 
         db = dbHelper.getWritableDatabase();
 
+        //inserting fake data for test purposes
+        DatabaseOperation.insertFakeData(db);
+
         Cursor cursor = DatabaseOperation.getAllItems(db); //get all items to display
 
         //setting up the recycler view
         setupRecyclerView(cursor);
 
         addItemTouchHelper(); //adds item touch helper for deleting entries
+
+        FloatingActionButton fabButton = (FloatingActionButton) findViewById(R.id.fab);
+
+        fabButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to start an AddTaskActivity
+                Intent addTaskIntent = new Intent(MainActivity.this, AddCheckedItemActivity.class);
+                startActivity(addTaskIntent);
+            }
+        });
     }
 
     private void addItemTouchHelper() {

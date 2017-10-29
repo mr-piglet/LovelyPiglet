@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Lovely Piglet</string>
-    <string name="default_date">15-Oct</string>
+    <string name="default_date">15-10</string>
     <string name="default_description">Locked after </string>
+    <string name="default_diplay_msg">What does my little Piglet need to be confirmed?</string>
+    <string name="first_confirm_btn_text">Add checked item</string>
+    <string name="confirmSnoutToastMsg">Click on piglet\'s snout to confirm!</string>
+    <string name="userInstructionToastMsg">First you need to click on add button!</string>
+
+    <string name="colorDisabledString" translatable="false">#DDDDDD</string>
+    <string name="pigSnoutColorString" translatable="false">#FF4081</string>
+    <string name="colorPrimaryDarkString" translatable="false">#303F9F</string>
 </resources>

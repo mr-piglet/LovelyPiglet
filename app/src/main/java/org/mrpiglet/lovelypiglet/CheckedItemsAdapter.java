@@ -71,7 +71,6 @@ class CheckedItemsAdapter extends RecyclerView.Adapter<CheckedItemsAdapter.Check
         holder.descriptionTextView.setText(description);
         holder.checkedDateTextView.setText(dayMonth);
         holder.itemView.setTag(id); //set database id of item to be able to delete it later, if needed!!
-
     }
 
     //class that holds one item
