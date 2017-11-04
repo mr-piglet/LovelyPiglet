@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckedItemsAdapter checkedItemsAdapter;
     private RecyclerView dataRecyclerView;
     private SQLiteDatabase db;
+    private int REQUEST_CODE_ADD_TASK = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
 
         //inserting fake data for test purposes
-        DatabaseOperation.insertFakeData(db);
+        //DatabaseOperation.insertFakeData(db);
 
         Cursor cursor = DatabaseOperation.getAllItems(db); //get all items to display
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Create a new intent to start an AddTaskActivity
                 Intent addTaskIntent = new Intent(MainActivity.this, AddCheckedItemActivity.class);
-                startActivity(addTaskIntent);
+                startActivityForResult(addTaskIntent, REQUEST_CODE_ADD_TASK);
             }
         });
     }
@@ -84,5 +85,15 @@ public class MainActivity extends AppCompatActivity {
         checkedItemsAdapter = new CheckedItemsAdapter(this, cursor);
 
         dataRecyclerView.setAdapter(checkedItemsAdapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //after adding new item, force refresh of recycler view
+        if (requestCode == REQUEST_CODE_ADD_TASK && resultCode == RESULT_OK) {
+            Cursor cursor = DatabaseOperation.getAllItems(db); //get all items to display
+            checkedItemsAdapter.swapCursor(cursor);
+        }
     }
 }

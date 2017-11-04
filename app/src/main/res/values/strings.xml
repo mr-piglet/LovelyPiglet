@@ -6,6 +6,7 @@
     <string name="first_confirm_btn_text">Add checked item</string>
     <string name="confirmSnoutToastMsg">Click on piglet\'s snout to confirm!</string>
     <string name="userInstructionToastMsg">First you need to click on add button!</string>
+    <string name="emptyDescriptionMsg">You need to enter an item description!</string>
 
     <string name="colorDisabledString" translatable="false">#DDDDDD</string>
     <string name="pigSnoutColorString" translatable="false">#FF4081</string>

@@ -66,7 +66,8 @@ class CheckedItemsAdapter extends RecyclerView.Adapter<CheckedItemsAdapter.Check
         long timestamp = itemTimestamp.getTime();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timestamp);
-        String dayMonth = "" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH);
+        //month field starts from zero!!
+        String dayMonth = "" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1);
 
         holder.descriptionTextView.setText(description);
         holder.checkedDateTextView.setText(dayMonth);

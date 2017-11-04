@@ -14,16 +14,16 @@ import java.util.List;
 public final class DatabaseOperation {
     //gets all items sorted by timestamp
     public static Cursor getAllItems(SQLiteDatabase db) {
-    return db.query(
-            CheckedItemsContract.CheckedItemsEntry.TABLE_NAME,
-            null,
-            null,
-            null,
-            null,
-            null,
-            CheckedItemsContract.CheckedItemsEntry.COLUMN_TIMESTAMP
-    );
-}
+        return db.query(
+                CheckedItemsContract.CheckedItemsEntry.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                CheckedItemsContract.CheckedItemsEntry.COLUMN_TIMESTAMP + " DESC"
+        );
+    }
 
 
     public static long addNewCheckedItem(SQLiteDatabase db, String description) {
@@ -56,8 +56,7 @@ public final class DatabaseOperation {
         list.add(cv);
 
         //insert all guests in one transaction
-        try
-        {
+        try {
             db.beginTransaction();
             //clear the table first
             db.delete (CheckedItemsContract.CheckedItemsEntry.TABLE_NAME,null,null);
@@ -70,8 +69,7 @@ public final class DatabaseOperation {
         catch (SQLException e) {
             //too bad :(
         }
-        finally
-        {
+        finally {
             db.endTransaction();
         }
 

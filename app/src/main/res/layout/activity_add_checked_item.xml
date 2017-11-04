@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:focusedByDefault="true"
+        android:text="@string/default_description"
         android:inputType="textMultiLine"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
