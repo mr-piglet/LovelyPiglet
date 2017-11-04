@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class AddCheckedItemActivity extends AppCompatActivity {
-    Button firstConfirmButton, secondConfirmButton;
-
+    private Button firstConfirmButton, secondConfirmButton;
+    private Toast activeToast = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,21 @@ public class AddCheckedItemActivity extends AppCompatActivity {
     public void onClickAddItem(View view) {
         if (view.getId() == R.id.bt_first_confirm) {
             prepareButtons(false);
+            if (activeToast != null) {
+                activeToast.cancel(); //prevent queuing up toasts
+            }
             //display toast to instruct user what to do next
-            Toast.makeText(getApplicationContext(), getString(R.string.confirmSnoutToastMsg), Toast.LENGTH_LONG).show();
+            activeToast = Toast.makeText(getApplicationContext(), getString(R.string.confirmSnoutToastMsg), Toast.LENGTH_LONG);
+            activeToast.show();
         } else
             if (view.getId() == R.id.bt_second_confirm) {
+                if (activeToast != null) {
+                    activeToast.cancel();
+                }
                 //instruct the user to first click on add button
                 if (firstConfirmButton.isEnabled()) {
-                    Toast.makeText(getApplicationContext(), getString(R.string.userInstructionToastMsg), Toast.LENGTH_LONG).show();
+                    activeToast = Toast.makeText(getApplicationContext(), getString(R.string.userInstructionToastMsg), Toast.LENGTH_LONG);
+                    activeToast.show();
                     return;
                 }
                 finish();
