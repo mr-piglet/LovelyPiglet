@@ -4,7 +4,7 @@
     <string name="default_description">Locked after </string>
     <string name="default_diplay_msg">What does my little Piglet need to be confirmed?</string>
     <string name="first_confirm_btn_text">Add checked item</string>
-    <string name="confirmSnoutToastMsg">Click on piglet\'s snout to confirm!</string>
+    <string name="confirmSnoutToastMsg">Click on piglet to confirm!</string>
     <string name="userInstructionToastMsg">First you need to click on add button!</string>
     <string name="emptyDescriptionMsg">You need to enter an item description!</string>
     <string name="addSuccessMsg">Successfully added the item!</string>
