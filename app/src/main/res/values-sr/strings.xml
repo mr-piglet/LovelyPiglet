@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ljupko prase</string>
+    <string name="addSuccessMsg">Uspešno je dodata provera!</string>
+    <string name="confirmSnoutToastMsg">Sada prase mora da potvrdi!</string>
+    <string name="default_date">15-10</string>
+    <string name="default_description">"Zaključano posle "</string>
+    <string name="default_diplay_msg">Šta moje prase želi da potvrdi?</string>
+    <string name="emptyDescriptionMsg">Punju! Moraš da uneseš opis provere!</string>
+    <string name="first_confirm_btn_text">Dodaj proveru</string>
+    <string name="userInstructionToastMsg">Prvo moraš da klikneš na \'Dodaj proveru\'</string>
+</resources>

@@ -18,6 +18,15 @@ import android.view.View;
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
 
+import java.util.Locale;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+
+
 public class MainActivity extends AppCompatActivity
                           implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final int ITEMS_LOADER_ID = 0;
@@ -61,6 +70,7 @@ public class MainActivity extends AppCompatActivity
          created, otherwise the last created loader is re-used.
          */
         getSupportLoaderManager().initLoader(ITEMS_LOADER_ID, null, this);
+        setLocale("sr");
     }
 
     @Override
@@ -168,5 +178,19 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         checkedItemsAdapter.swapCursor(null);
+    }
+
+    @SuppressWarnings("deprecation")  //!!!!!!!!
+    public void setLocale(String lang) {
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        setTitle(getString(R.string.app_name));
+        //Intent refresh = new Intent(this, MainActivity.class);
+        //startActivity(refresh);
+        //finish();
     }
 }
