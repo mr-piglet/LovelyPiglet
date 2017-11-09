@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
+import org.mrpiglet.lovelypiglet.utils.AppLocalization;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
 
 public class AddCheckedItemActivity extends AppCompatActivity {
@@ -19,6 +20,13 @@ public class AddCheckedItemActivity extends AppCompatActivity {
     private Button firstConfirmButton;//, secondConfirmButton;
     private Toast activeToast = null;
     private SQLiteDatabase db;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //set currently selected language
+        AppLocalization.setAppLocale("sr", this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
