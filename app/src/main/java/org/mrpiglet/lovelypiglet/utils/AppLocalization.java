@@ -9,10 +9,6 @@ import org.mrpiglet.lovelypiglet.R;
 
 import java.util.Locale;
 
-/**
- * Created by mrpiglet on 9.11.17..
- */
-
 public final class AppLocalization {
 
     @SuppressWarnings("deprecation")  //!!!!!!!!

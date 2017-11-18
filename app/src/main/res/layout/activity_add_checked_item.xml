@@ -74,6 +74,7 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:srcCompat="@drawable/ic_pigsvg"
+        android:focusableInTouchMode="true"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginLeft="8dp"

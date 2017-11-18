@@ -4,20 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
 import org.mrpiglet.lovelypiglet.utils.AppLocalization;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
+import org.mrpiglet.lovelypiglet.utils.SysUtils;
 
 public class AddCheckedItemActivity extends AppCompatActivity {
     private EditText descriptionEditText;
-    private Button firstConfirmButton;//, secondConfirmButton;
+    private Button firstConfirmButton;
+    private ImageView secondConfirmImageView;
     private Toast activeToast = null;
     private SQLiteDatabase db;
 
@@ -35,7 +39,7 @@ public class AddCheckedItemActivity extends AppCompatActivity {
 
         descriptionEditText = (EditText) findViewById(R.id.et_description);
         firstConfirmButton = (Button) findViewById(R.id.bt_first_confirm);
-        //secondConfirmButton = (Button) findViewById(R.id.bt_second_confirm);
+        secondConfirmImageView = (ImageView) findViewById(R.id.bt_second_confirm);
 
         CheckedItemsDbHelper dbHelper = new CheckedItemsDbHelper(this);
         db = dbHelper.getWritableDatabase();
@@ -49,11 +53,11 @@ public class AddCheckedItemActivity extends AppCompatActivity {
         if (firstTime) {
             firstConfirmButton.setEnabled(true);
             firstConfirmButton.setBackgroundColor(Color.parseColor(getString(R.string.colorPrimaryDarkString)));
-            //secondConfirmButton.setEnabled(false);
+            //secondConfirmImageView.setEnabled(false);
         } else {
             firstConfirmButton.setEnabled(false);
             firstConfirmButton.setBackgroundColor(Color.parseColor(getString(R.string.colorDisabledString)));
-            //secondConfirmButton.setEnabled(true);
+            secondConfirmImageView.setEnabled(true);
         }
     }
 
@@ -74,6 +78,10 @@ public class AddCheckedItemActivity extends AppCompatActivity {
             }
             prepareButtons(false);
             showToast(getString(R.string.confirmSnoutToastMsg), Toast.LENGTH_SHORT);
+
+            SysUtils.hideKeyboard(this);
+
+            secondConfirmImageView.requestFocus();
         } else
             if (view.getId() == R.id.bt_second_confirm) {
                 //instruct the user to first click on add button
