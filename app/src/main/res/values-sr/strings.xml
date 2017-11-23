@@ -9,4 +9,5 @@
     <string name="emptyDescriptionMsg">Punju! Moraš da uneseš opis provere!</string>
     <string name="first_confirm_btn_text">Dodaj proveru</string>
     <string name="userInstructionToastMsg">Prvo moraš da klikneš na \'Dodaj proveru\'</string>
+    <string name="action_settings">Podešavanja</string>
 </resources>

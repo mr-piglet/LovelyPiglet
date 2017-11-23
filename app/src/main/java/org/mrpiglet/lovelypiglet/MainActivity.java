@@ -13,6 +13,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
@@ -35,6 +38,25 @@ public class MainActivity extends AppCompatActivity
     private CheckedItemsAdapter checkedItemsAdapter;
     private RecyclerView dataRecyclerView;
     private SQLiteDatabase db;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    //gets called when menu item is selected
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) { //user chose to open settings activity on main menu
+            Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

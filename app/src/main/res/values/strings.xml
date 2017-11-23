@@ -9,6 +9,8 @@
     <string name="emptyDescriptionMsg">You need to enter an item description!</string>
     <string name="addSuccessMsg">Successfully added the item!</string>
 
+    <string name="action_settings_string">Settings</string>
+
     <string name="colorDisabledString" translatable="false">#DDDDDD</string>
     <string name="pigSnoutColorString" translatable="false">#FF4081</string>
     <string name="colorPrimaryDarkString" translatable="false">#303F9F</string>
