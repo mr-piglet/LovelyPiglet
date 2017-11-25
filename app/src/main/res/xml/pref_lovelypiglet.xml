@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <org.mrpiglet.lovelypiglet.settings.TimePreference
+        android:key="@string/pref_reminder_key"
+        android:title="@string/pref_reminder_label"
+        android:defaultValue="22:00"
+        android:summary="Set some time"/>
+    <ListPreference
+        android:key="@string/pref_lang_key"
+        android:defaultValue="@string/pref_lang_en_value"
+        android:title="@string/pref_lang_label"
+        android:entries="@array/pref_lang_labels_array"
+        android:entryValues="@array/pref_lang_values_array"
+        />
+</PreferenceScreen>

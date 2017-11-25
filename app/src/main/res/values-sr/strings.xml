@@ -9,5 +9,9 @@
     <string name="emptyDescriptionMsg">Punju! Moraš da uneseš opis provere!</string>
     <string name="first_confirm_btn_text">Dodaj proveru</string>
     <string name="userInstructionToastMsg">Prvo moraš da klikneš na \'Dodaj proveru\'</string>
-    <string name="action_settings">Podešavanja</string>
+    <string name="action_settings_string">Podešavanja</string>
+    <string name="pref_reminder_label">Podsetnik</string>
+    <string name="pref_lang_label">Jezik</string>
+    <string name="pref_lang_en_label">Engleski</string>
+    <string name="pref_lang_sr_label">Srpski</string>
 </resources>
