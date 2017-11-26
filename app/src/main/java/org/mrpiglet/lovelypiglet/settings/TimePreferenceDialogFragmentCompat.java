@@ -60,4 +60,5 @@ public class TimePreferenceDialogFragmentCompat extends PreferenceDialogFragment
     public Preference findPreference(CharSequence charSequence) {
         return getPreference();
     }
+
 }
