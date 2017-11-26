@@ -1,5 +1,6 @@
 package org.mrpiglet.lovelypiglet.settings;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -8,6 +9,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 
+import org.mrpiglet.lovelypiglet.MainActivity;
 import org.mrpiglet.lovelypiglet.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat
@@ -68,6 +70,12 @@ public class SettingsFragment extends PreferenceFragmentCompat
             //!!!if there are preferences with other than string value or with summary set in xml, exclude them from next 2 statements
             String value = sharedPreferences.getString(preference.getKey(), "");
             setPreferenceSummary(preference, value);
+
+            /*if (key.equals(getString(R.string.pref_lang_key))) { //DONE IN SETTINGS ACTIVITY
+                Intent intent = new Intent(getContext(), org.mrpiglet.lovelypiglet.SettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }*/
         }
     }
 

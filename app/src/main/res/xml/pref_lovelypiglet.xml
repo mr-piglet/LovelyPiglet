@@ -4,8 +4,8 @@
     <org.mrpiglet.lovelypiglet.settings.TimePreference
         android:key="@string/pref_reminder_key"
         android:title="@string/pref_reminder_label"
-        android:defaultValue="22:00"
-        android:summary="Set some time"/>
+        android:defaultValue="@string/pref_reminder_default_value"
+        />
     <ListPreference
         android:key="@string/pref_lang_key"
         android:defaultValue="@string/pref_lang_en_value"

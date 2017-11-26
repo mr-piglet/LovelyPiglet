@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- when navigate back from change activity, "singleTop" assures that parent is not remade -->
+        <!-- when navigate back from change activity, "singleTop" assures that parent is not remade
+        we do not need it because we want to refresh activity and language changes-->
+        <!-- android:launchMode="singleTop" -->
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop"
+
             android:configChanges="locale|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddCheckedItemActivity" />
+        <activity android:name=".AddCheckedItemActivity" android:configChanges="locale|orientation">
+        </activity>
         <activity android:name=".SettingsActivity"
+            android:configChanges="locale|orientation"
             android:label="@string/action_settings_string"
             android:parentActivityName=".MainActivity">
             <meta-data

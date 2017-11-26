@@ -29,12 +29,16 @@ public class AddCheckedItemActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //set currently selected language
-        AppLocalization.setAppLocale("sr", this);
+        //AppLocalization.setLanguageFromPreferences(this);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //set currently selected language before drawing xml layout
+        AppLocalization.setLanguageFromPreferences(this);
+
         setContentView(R.layout.activity_add_checked_item);
 
         descriptionEditText = (EditText) findViewById(R.id.et_description);

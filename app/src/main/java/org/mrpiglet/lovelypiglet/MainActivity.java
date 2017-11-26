@@ -22,14 +22,6 @@ import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
 import org.mrpiglet.lovelypiglet.utils.AppLocalization;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
 
-import java.util.Locale;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-
 
 public class MainActivity extends AppCompatActivity
                           implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -61,6 +53,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //set currently selected language before drawing xml layout
+        AppLocalization.setLanguageFromPreferences(this);
+
         setContentView(R.layout.activity_main);
 
         CheckedItemsDbHelper dbHelper = new CheckedItemsDbHelper(this);
@@ -98,12 +94,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+        //set currently selected language
+        //AppLocalization.setLanguageFromPreferences(this);
 
         // re-queries for all tasks, refresher recyclerview
         getSupportLoaderManager().restartLoader(ITEMS_LOADER_ID, null, this);
-
-        //set currently selected language
-        AppLocalization.setAppLocale("sr", this);
     }
 
     private void addItemTouchHelper() {
@@ -121,7 +116,6 @@ public class MainActivity extends AppCompatActivity
                 long id = (long) viewHolder.itemView.getTag();
                 //remove from DB
                 DatabaseOperation.removeCheckedItem(db, id);
-                // COMPLETED (10) call swapCursor on mAdapter passing in getAllGuests() as the argument
                 //update the list
                 checkedItemsAdapter.swapCursor(DatabaseOperation.getAllItems(db));
             }
