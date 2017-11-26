@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         //set currently selected language
-        //AppLocalization.setLanguageFromPreferences(this);
+        AppLocalization.setLanguageFromPreferences(this);
 
         // re-queries for all tasks, refresher recyclerview
         getSupportLoaderManager().restartLoader(ITEMS_LOADER_ID, null, this);
