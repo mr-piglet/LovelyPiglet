@@ -14,4 +14,8 @@
     <string name="pref_lang_label">Jezik</string>
     <string name="pref_lang_en_label">Engleski</string>
     <string name="pref_lang_sr_label">Srpski</string>
+    <string name="check_now_notification_title">Nešto treba da se proveri...</string>
+    <string name="check_now_notification_body">Ljupko prase, molim te proveri jako bitne stvari.</string>
+    <string name="ignore_notification">Provereno!</string>
+    <string name="check_now_notification">Hajde!</string>
 </resources>

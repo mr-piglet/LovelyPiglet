@@ -23,4 +23,11 @@
     <string name="colorDisabledString" translatable="false">#DDDDDD</string>
     <string name="pigSnoutColorString" translatable="false">#FF4081</string>
     <string name="colorPrimaryDarkString" translatable="false">#303F9F</string>
+
+    <string name="main_notification_channel_name" translatable="false">main_channel</string>
+    <string name="check_now_notification_title">Something needs to be checked...</string>
+    <string name="check_now_notification_body">Lovely piglet, please add your daily check.</string>
+    <string name="ignore_notification">Already did!</string>
+    <string name="check_now_notification">Let\'s check!</string>
+
 </resources>

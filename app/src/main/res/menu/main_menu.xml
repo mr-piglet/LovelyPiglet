@@ -7,5 +7,10 @@
         android:title="@string/action_settings_string"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/action_test_notification"
+        android:title="Test notification"
+        app:showAsAction="never"
+        />
 
 </menu>

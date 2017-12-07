@@ -13,8 +13,12 @@ buildscript {
 }
 
 allprojects {
+    //to get new 26.+ dependencies, you have to add maven.google.com to repositories
     repositories {
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
 }
 
