@@ -21,7 +21,6 @@ import android.view.View;
 import org.mrpiglet.lovelypiglet.data.CheckedItemsDbHelper;
 import org.mrpiglet.lovelypiglet.utils.AppLocalization;
 import org.mrpiglet.lovelypiglet.utils.DatabaseOperation;
-import org.mrpiglet.lovelypiglet.utils.NotificationUtils;
 
 
 public class MainActivity extends AppCompatActivity
@@ -48,10 +47,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(startSettingsActivity);
             return true;
         }
-        //for testing purposes
-        else if (id == R.id.action_test_notification) {
-            testNotification(item.getActionView());
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -164,8 +160,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public Cursor loadInBackground() {
                 try {
-                    Cursor cursor = DatabaseOperation.getAllItems(db);
-                    return cursor;
+                    return DatabaseOperation.getAllItems(db);
                 } catch (Exception e) {
                     Log.e("ASYNC_LOADER", "Failed to asynchronously load data.");
                     e.printStackTrace();
@@ -204,8 +199,4 @@ public class MainActivity extends AppCompatActivity
         checkedItemsAdapter.swapCursor(null);
     }
 
-    //only for testing purposes
-    public void testNotification(View view) {
-        NotificationUtils.sendCheckNowNotification(this);
-    }
 }

@@ -12,8 +12,11 @@ import android.support.v7.preference.PreferenceScreen;
 import org.mrpiglet.lovelypiglet.MainActivity;
 import org.mrpiglet.lovelypiglet.R;
 
+//OnSharedPreferenceChangeListener is used to update time preference summary dynamically
 public class SettingsFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener{
+
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.pref_lovelypiglet);

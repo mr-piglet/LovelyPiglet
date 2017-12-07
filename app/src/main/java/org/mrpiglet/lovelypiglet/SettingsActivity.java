@@ -11,6 +11,7 @@ import android.support.v7.preference.Preference;
 import android.view.MenuItem;
 
 import org.mrpiglet.lovelypiglet.utils.AppLocalization;
+import org.mrpiglet.lovelypiglet.utils.NotificationUtils;
 
 public class SettingsActivity extends AppCompatActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -21,6 +22,8 @@ public class SettingsActivity extends AppCompatActivity
             AppLocalization.setLanguageFromPreferences(this);
 
             recreate(); //works on API 14+
+        } else if (key.equals(getString(R.string.pref_reminder_key))) {
+            NotificationUtils.scheduleCheckNowNotification(this);
         }
     }
 

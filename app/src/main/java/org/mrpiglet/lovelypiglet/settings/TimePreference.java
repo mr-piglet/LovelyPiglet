@@ -9,23 +9,23 @@ public class TimePreference extends DialogPreference {
     private int hour = 0;
     private int minute = 0;
 
-    public int getHour() {
+    int getHour() {
         return hour;
     }
 
-    public int getMinute() {
+    int getMinute() {
         return minute;
     }
 
-    public void setHour(int hour) {
+    void setHour(int hour) {
         this.hour = hour;
     }
 
-    public void setMinute(int minute) {
+    void setMinute(int minute) {
         this.minute = minute;
     }
 
-    protected static int parseHour(String value) {
+    static int parseHour(String value) {
         try {
             String[] time = value.split(":");
             return (Integer.parseInt(time[0]));
@@ -34,7 +34,7 @@ public class TimePreference extends DialogPreference {
         }
     }
 
-    protected static int parseMinute(String value) {
+    static int parseMinute(String value) {
         try {
             String[] time = value.split(":");
             return (Integer.parseInt(time[1]));
@@ -43,7 +43,7 @@ public class TimePreference extends DialogPreference {
         }
     }
 
-    public static String timeToString(int h, int m) {
+    static String timeToString(int h, int m) {
         return String.format("%02d", h) + ":" + String.format("%02d", m);
     }
 
@@ -60,7 +60,7 @@ public class TimePreference extends DialogPreference {
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
         String value;
         if (restoreValue) {
-            if (defaultValue == null) value = getPersistedString("00:00");
+            if (defaultValue == null) value = getPersistedString("22:00");
             else value = getPersistedString(defaultValue.toString());
         }
         else {
@@ -71,7 +71,7 @@ public class TimePreference extends DialogPreference {
         minute = parseMinute(value);
     }
 
-    public void persistStringValue(String value) {
+    void persistStringValue(String value) {
         persistString(value);
     }
 }
